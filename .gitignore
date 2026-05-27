@@ -1,0 +1,13 @@
+# Upstream code (cloned separately)
+sae_robustness/
+
+# Local results / caches
+results/
+*.log
+*.npz
+__pycache__/
+.ipynb_checkpoints/
+.venv/
+*.egg-info/
+
+# Heavy artefacts go on parastor; do not track
