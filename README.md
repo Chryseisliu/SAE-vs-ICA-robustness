@@ -9,7 +9,7 @@ Reproduction of [arXiv:2505.16004v2](https://arxiv.org/abs/2505.16004) — "Adve
 - **Model:** Gemma2-9B (base) + Gemmascope 131k SAE, layer 30
 - **Dataset:** AdvBench safety prompts (`safety.csv`, 520 paired harmful/benign prompts)
 - **Hardware:** 8× NVIDIA H100 80GB
-- **Upstream code:** [AI4LIFE-GROUP/sae_robustness](https://github.com/AI4LIFE-GROUP/sae_robustness) (cloned to `sae_robustness/`)
+- **Upstream code:** [AI4LIFE-GROUP/sae_robustness](https://github.com/AI4LIFE-GROUP/sae_robustness) 
 - **N:** 50 samples × 8 attack scenarios = 400 jobs
 
 ## Results vs Paper (Figure 2)
@@ -47,7 +47,7 @@ The population-level claim (the paper's primary contribution) is not affected by
 
 - Upstream code hardcodes Harvard cluster paths (`/n/netscratch/...`). Patched in `sae_robustness/src/config.py` and `sae_robustness/src/loader.py` to use env vars.
 - HuggingFace direct access was blocked from my cluster. Used `hf-mirror.com` + `HF_HUB_DISABLE_XET=1` to bypass XET CDN redirect. Comment out all these if you can directly access.
-- Orchestration: custom multi-GPU dispatcher (`reproduce/orchestrate.py`) running 8 parallel workers, one per GPU. Each worker spawns a subprocess per job (model reloaded each time — inefficient but robust).
+- Orchestration: custom multi-GPU dispatcher (`reproduce/orchestrate.py`) running 8 parallel workers, one per GPU. Each worker spawns a subprocess per job (model reloaded each time, this can be optimized in the future).
 
 ## Files
 
