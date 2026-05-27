@@ -8,7 +8,7 @@ Reproduction of [arXiv:2505.16004v2](https://arxiv.org/abs/2505.16004) — "Adve
 
 - **Model:** Gemma2-9B (base) + Gemmascope 131k SAE, layer 30
 - **Dataset:** AdvBench safety prompts (`safety.csv`, 520 paired harmful/benign prompts)
-- **Hardware:** 8× NVIDIA H100 80GB (h100-2.zzli, Jingneng platform)
+- **Hardware:** 8× NVIDIA H100 80GB
 - **Upstream code:** [AI4LIFE-GROUP/sae_robustness](https://github.com/AI4LIFE-GROUP/sae_robustness) (cloned to `sae_robustness/`)
 - **N:** 50 samples × 8 attack scenarios = 400 jobs
 
