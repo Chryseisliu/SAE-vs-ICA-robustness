@@ -46,8 +46,7 @@ The population-level claim (the paper's primary contribution) is not affected by
 ## Reproduction Notes
 
 - Upstream code hardcodes Harvard cluster paths (`/n/netscratch/...`). Patched in `sae_robustness/src/config.py` and `sae_robustness/src/loader.py` to use env vars.
-- HuggingFace direct access blocked from Jingneng cluster. Used `hf-mirror.com` + `HF_HUB_DISABLE_XET=1` to bypass XET CDN redirect.
-- GitHub SSH port 22 blocked. Used `ssh.github.com:443` fallback (configured in `~/.ssh/config`).
+- HuggingFace direct access was blocked from my cluster. Used `hf-mirror.com` + `HF_HUB_DISABLE_XET=1` to bypass XET CDN redirect. Comment out all these if you can directly access.
 - Orchestration: custom multi-GPU dispatcher (`reproduce/orchestrate.py`) running 8 parallel workers, one per GPU. Each worker spawns a subprocess per job (model reloaded each time — inefficient but robust).
 
 ## Files
@@ -64,7 +63,7 @@ results/
 └── *.log                # Per-job detailed logs
 
 figures/
-└── fig2_repro.png       # Our Figure 2 vs paper baselines
+└── fig2_repro.png       # Our Figure 2 vs paper figure 2 baselines
 ```
 
 ## Reproduce
